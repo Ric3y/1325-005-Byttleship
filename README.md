@@ -13,3 +13,9 @@ git clone https://github.com/Ric3y/1325-005-Byttleship.git
 ```
 java battleship.java
 ```
+
+## TO DO
+
+- AI enemy
+- Game loop
+- Targeting
