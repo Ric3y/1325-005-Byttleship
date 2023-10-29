@@ -11,7 +11,7 @@ git clone https://github.com/Ric3y/1325-005-Byttleship.git
 
 - Compile the following files:
 ```
-javac fillAndPrintMapsjava
+javac fillAndPrintMaps.java
 javac placeShips.java 
 ```
 
