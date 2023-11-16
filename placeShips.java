@@ -117,7 +117,7 @@ public class placeShips
                     			int maxCol = Math.max(col1, col2);
                     			for (int col = minCol; col <= maxCol; col++) 
                     			{
-                        			map[row1][col] = " + ";
+                        			map[row1][col] = " # ";
                     			}
                 		} 
                 		else if (col1 == col2) 
@@ -127,7 +127,7 @@ public class placeShips
                     			int maxRow = Math.max(row1, row2);
                     			for (int row = minRow; row <= maxRow; row++) 
                     			{
-                        			map[row][col1] = " + ";
+                        			map[row][col1] = " # ";
                     			}
                 		} 
                 		else 
@@ -158,7 +158,7 @@ public class placeShips
             		int maxCol = Math.max(col1, col2);
             		for (int col = minCol; col <= maxCol; col++) 
             		{
-                		if (map[row1][col].equals(" + "))
+                		if (map[row1][col].equals(" # "))
                 		{
                     			return false; // Path is not clear
                 		}
@@ -171,7 +171,7 @@ public class placeShips
             		int maxRow = Math.max(row1, row2);
             		for (int row = minRow; row <= maxRow; row++) 
             		{
-                		if (map[row][col1].equals(" + ")) 
+                		if (map[row][col1].equals(" # ")) 
                 		{
                     			return false; // Path is not clear
                 		}
