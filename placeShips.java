@@ -59,8 +59,8 @@ public class placeShips
                     			} 
                     			else 
                     			{
-                        			coordinate1 = ""; // Invalid coordinates, will try again in the next iteration
-                        			coordinate2 = "";
+                        			coordinate1 = "Invalid"; // Invalid coordinates, will try again in the next iteration
+                        			coordinate2 = "Invalid";
                     			}
                 		} 
                 		while (!isMatchingShipSize(coordinate1, coordinate2, shipSize) || !drawLine(emap, coordinate1, coordinate2));
@@ -73,15 +73,23 @@ public class placeShips
 	//checks if the ship coords match the ships
     	public static boolean isMatchingShipSize(String coord1, String coord2, int shipSize) 
     	{
-        	int row1 = Integer.parseInt(coord1.substring(1));
-        	int col1 = coord1.charAt(0) - 'A' + 1;
-        	int row2 = Integer.parseInt(coord2.substring(1));
-        	int col2 = coord2.charAt(0) - 'A' + 1;
+		if(coord1 == "Invalid" || coord2 == "Invalid")
+		{
+			return false;
+		}
+		else
+		{
+			
+        		int row1 = Integer.parseInt(coord1.substring(1));
+        		int col1 = coord1.charAt(0) - 'A' + 1;
+        		int row2 = Integer.parseInt(coord2.substring(1));
+        		int col2 = coord2.charAt(0) - 'A' + 1;
 
-        	int length = Math.abs(row1 - row2) + 1;
-        	int width = Math.abs(col1 - col2) + 1;
+        		int length = Math.abs(row1 - row2) + 1;
+        		int width = Math.abs(col1 - col2) + 1;
 
-        	return length == shipSize || width == shipSize;
+        		return length == shipSize || width == shipSize;
+		}
     	}
 
 	//checks if the coords given are in bounds and draws line. if not in bound it will prompt the user to enter new coords.
