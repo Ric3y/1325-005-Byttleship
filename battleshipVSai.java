@@ -35,6 +35,10 @@ public class battleshipVSai {
 		fillAndPrintMaps.fillMap(mapSize, emap);
 		fillAndPrintMaps.printGame(mapSize, ymap, emap);
 		placeShips.placeYShips(ymap, shipNum, mapSize, emap);
+		placeShips.placeEShips(emap, shipNum, mapSize);
+
+		// Only to see that placeEShips is working; will not be in final code
+        	fillAndPrintMaps.printMap(mapSize, emap);
 		input.close();
 		
 	}
