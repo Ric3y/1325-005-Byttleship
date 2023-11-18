@@ -12,11 +12,11 @@ public class battleshipVSai {
 			try {
 				System.out.print("WELCOME TO BATTLESHIP\nENTER MAP SIZE: ");
 				mapSize = input.nextInt();
-				input.nextLine(); // Consume the newline character left in the buffer
-				break; // Break out of the loop if an integer is entered
+				input.nextLine();
+				break; 
 			} catch (java.util.InputMismatchException e) {
 				System.out.println("Invalid input. Please enter an integer.");
-				input.nextLine(); // Consume the invalid input
+				input.nextLine();
 			}
 		}
 	
@@ -38,12 +38,12 @@ public class battleshipVSai {
 		placeShips.placeEShips(emap, shipNum, mapSize);
 
 		// Only to see that placeEShips is working; will not be in final code
-        	fillAndPrintMaps.printMap(mapSize, emap);
+        fillAndPrintMaps.printMap(mapSize, emap);
 		input.close();
 		
 	}
 	
-	//calculates the number of ships players get
+	//Function to calculates the number of ships players get
 	public static void calcShipNum(int shipTileNum, int shipNum[])
 	{
 		
