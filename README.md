@@ -1,6 +1,6 @@
 # Byttleship
 
-placeholder description
+Text based battleship-like game made using Java 
 
 ## How to use
 
@@ -22,6 +22,7 @@ java battleship.java
 
 ## TO DO
 
+- Fix placing ship boat bug 
 - AI enemy
 - Game loop
 - Targeting
