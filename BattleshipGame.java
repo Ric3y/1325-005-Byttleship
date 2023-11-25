@@ -141,6 +141,8 @@ public class BattleshipGame {
                 }
             }
         }
+
+        input.close();
     }
 
     public static void playerTurn(String playerMap[][], String enemyMap[][], String enemyShowMap[][]) {
@@ -166,6 +168,8 @@ public class BattleshipGame {
         } else {
             System.out.println("Invalid coordinates. Try again.");
         }
+
+        scanner.close();
     }
 
     public static void enemyTurn(String playerMap[][], String enemyMap[][]) {
