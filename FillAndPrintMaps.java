@@ -38,21 +38,21 @@ public class FillAndPrintMaps {
 	
 	//prints the current playerMap and enemyShownMap
 	public static void printGame(String playerMap[][], String enemyMap[][]) {
-        System.out.print("\nEnemy Map: \n");
+        GameLoopMethods.slowPrint("\nEnemy Map: \n");
         printMap(enemyMap);
-        System.out.print("\nYour Map: \n");
+        GameLoopMethods.slowPrint("\nYour Map: \n");
         printMap(playerMap);
         System.out.println("\n=================================================================\n==============================================================");
     }
 	
 	//prints whether the user won or lost and displays the final maps
 	public static void printResult(String playerMap[][], String enemyShownMap[][]) {
-        System.out.println("\nGAME OVER!");
+        GameLoopMethods.slowPrint("\nGAME OVER!");
 
         if (GameLoopMethods.allShipsSunk(playerMap)) {
-            System.out.println("You lost! Better luck next time.");
+            GameLoopMethods.slowPrint("You lost! Better luck next time.");
         } else {
-            System.out.println("Congratulations! You won!");
+            GameLoopMethods.slowPrint("Congratulations! You won!");
         }
 
         System.out.println("\nFINAL MAPS:");
