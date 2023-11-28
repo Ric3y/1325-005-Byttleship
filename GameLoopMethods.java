@@ -2,6 +2,7 @@ package ByttleShipPackage;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class GameLoopMethods {
 	
@@ -9,7 +10,7 @@ public class GameLoopMethods {
 	public static void playerTurn(String playerMap[][], String enemyMap[][], String enemyShownMap[][]) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter coordinates to attack the enemy(e.g., A1): ");
+        GameLoopMethods.slowPrint("Enter coordinates to attack the enemy(e.g., A1): ");
         String target = scanner.next().toUpperCase();
 
 
@@ -19,15 +20,15 @@ public class GameLoopMethods {
         // Check if the coordinates are within bounds
         if (row >= 0 && row < playerMap.length && col >= 0 && col < playerMap[0].length) {
             if (enemyMap[row][col].equals(" # ")) {
-            	System.out.println("You HIT an enemy ship!");
+            	GameLoopMethods.slowPrint("You HIT an enemy ship!");
             	enemyMap[row][col] = " X ";
             	enemyShownMap[row][col] = " X ";
             } else {
-            	System.out.println("You MISSED!");
+            	GameLoopMethods.slowPrint("You MISSED!");
             	enemyShownMap[row][col] = " O ";
             }
         } else {
-            System.out.println("Invalid coordinates. Try again.");
+            GameLoopMethods.slowPrint("Invalid coordinates. Try again.");
         }
     }
 	
@@ -43,10 +44,10 @@ public class GameLoopMethods {
 
         //if hit change playerMap coordinate to X else change to O
         if (playerMap[row][col].equals(" # ")) {
-            System.out.println("The enemy HIT your ship!");
+            GameLoopMethods.slowPrint("The enemy HIT your ship!");
             playerMap[row][col] = " X ";
         } else {
-            System.out.println("The enemy MISSED!");
+            GameLoopMethods.slowPrint("The enemy MISSED!");
             playerMap[row][col] = " O ";
         }
     }
@@ -67,4 +68,16 @@ public class GameLoopMethods {
         return true;
     }
 
+    //put a delay when print out text
+    public static void slowPrint(String input) {
+        for (int i = 0; i<input.length(); i++) {
+            char c = input.charAt(i);
+            System.out.print(c);
+        try {
+        TimeUnit.MILLISECONDS.sleep(30);
+        }
+        catch (Exception e) {
+            }
+        }
+    }
 }

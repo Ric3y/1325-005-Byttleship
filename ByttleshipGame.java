@@ -2,6 +2,7 @@ package ByttleShipPackage;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class ByttleshipGame {
 
@@ -9,7 +10,7 @@ public class ByttleshipGame {
         Scanner scanner = new Scanner(System.in);
 
         // Set up the game
-        System.out.print("WELCOME TO BATTLESHIP\nENTER MAP SIZE: ");
+        GameLoopMethods.slowPrint("WELCOME TO BATTLESHIP\nENTER MAP SIZE: ");
         int mapSize = scanner.nextInt();
 
         String playerMap[][] = new String[mapSize][mapSize];
