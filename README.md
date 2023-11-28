@@ -9,12 +9,12 @@ Text based battleship-like game made using Java
 git clone https://github.com/Ric3y/1325-005-Byttleship.git
  ```
 
-- Run the following command to start the program:
+- Go to the folder directory and compile the files
 ```
-java battleship.java
+javac -d . *.java
 ```
 
-## TO DO
-
-- Clean up file
-- Code documentation
+- Start the program
+```
+java BattleshipGame.java
+```
