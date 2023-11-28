@@ -16,5 +16,5 @@ javac -d . *.java
 
 - Start the program
 ```
-java BattleshipGame.java
+java ByttleShipPackage.BattleshipGame
 ```
