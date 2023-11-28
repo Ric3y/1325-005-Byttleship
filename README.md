@@ -11,7 +11,7 @@ git clone https://github.com/Ric3y/1325-005-Byttleship.git
 
 - Go to the folder directory and compile the files
 ```
-javac -d *.java
+javac -d . *.java
 ```
 
 - Start the program
