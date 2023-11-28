@@ -1,5 +1,3 @@
-package test;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,25 +11,30 @@ public class BattleshipGame {
         int mapSize = scanner.nextInt();
 
         String playerMap[][] = new String[mapSize][mapSize];
+        String enemyShowMap[][] = new String[mapSize][mapSize];
         String enemyMap[][] = new String[mapSize][mapSize];
 
         fillMap(playerMap);
+        fillMap(enemyShowMap);
         fillMap(enemyMap);
 
         int shipTileNum = (int) Math.round((mapSize * mapSize) * 0.17);
         int shipNum[] = new int[5];
-        ShipCalculator.calcShipNum(shipTileNum, shipNum);
+        calcShipNum(shipTileNum, shipNum);
 
         // Place ships for the player
-        placeShips(playerMap, shipNum, mapSize, null);
+        placeShips(playerMap, shipNum, mapSize, null, playerMap, enemyMap);
 
         // Place ships for the enemy
-        placeShips(enemyMap, shipNum, mapSize, new Random());
+        placeShips(enemyMap, shipNum, mapSize, new Random(), playerMap, enemyMap);
+        
+        // Print both maps to show the user for first attack
+        printGame(playerMap, enemyShowMap);
 
         // Game loop
         while (!GameLoopMethods.isGameOver(playerMap, enemyMap)) {
             System.out.println("\nYour turn:");
-            playerTurn(playerMap, enemyMap);
+            playerTurn(playerMap, enemyMap, enemyShowMap);
 
             // Check if the game is over
             if (GameLoopMethods.isGameOver(playerMap, enemyMap)) {
@@ -47,11 +50,11 @@ public class BattleshipGame {
             }
 
             // Print the current state of the game
-            printGame(playerMap, enemyMap);
+            printGame(playerMap, enemyShowMap);
         }
 
         // Print the final result
-        printResult(playerMap, enemyMap);
+        printResult(playerMap, enemyShowMap);
 
         scanner.close();
     }
@@ -168,8 +171,6 @@ public class BattleshipGame {
         } else {
             System.out.println("Invalid coordinates. Try again.");
         }
-
-        scanner.close();
     }
 
     public static void enemyTurn(String playerMap[][], String enemyMap[][]) {
@@ -288,36 +289,7 @@ public class BattleshipGame {
         printMap(enemyShowMap);
         System.out.println("\nYour Map:");
         printMap(playerMap);
+        System.out.println("\nEnemy Map:");
+        printMap(enemyMap);
     }
-
-	public static void calcShipNum(int shipTileNum, int shipNum[]) {
-        while (shipTileNum / 17 > 0) {
-            shipTileNum -= 5;
-            shipNum[4]++;
-        }
-        while (shipTileNum / 3 >= 4) {
-            shipTileNum -= 4;
-            shipNum[3]++;
-        }
-        while (shipTileNum / 2 >= 2) {
-            shipTileNum -= 3;
-            shipNum[2]++;
-        }
-        while (shipTileNum / 2 >= 1) {
-            shipTileNum -= 2;
-            shipNum[1]++;
-        }
-        while (shipTileNum != 0) {
-            shipTileNum -= 1;
-            shipNum[0]++;
-        }
-
-        System.out.println("\nYOU HAVE THESE SHIPS: " +
-            "\n5x1 ships: " + shipNum[4] +
-            "\n4x1 ships: " + shipNum[3] +
-            "\n3x1 ships: " + shipNum[2] +
-            "\n2x1 ships: " + shipNum[1] +
-            "\n1x1 ships: " + shipNum[0]);
-    }
-
 }
