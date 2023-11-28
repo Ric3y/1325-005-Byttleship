@@ -1,6 +1,6 @@
 # Byttleship
 
-Text based battleship-like game made using Java 
+Terminal based battleship-like game made using Java 
 
 ## How to use
 
