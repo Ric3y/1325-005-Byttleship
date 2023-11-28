@@ -9,7 +9,7 @@ public class GameLoopMethods {
 	public static void playerTurn(String playerMap[][], String enemyMap[][], String enemyShownMap[][]) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter target coordinates (e.g., A1): ");
+        System.out.println("Enter coordinates to attack the enemy(e.g., A1): ");
         String target = scanner.next();
 
 
@@ -43,10 +43,10 @@ public class GameLoopMethods {
 
         //if hit change playerMap coordinate to X else change to O
         if (playerMap[row][col].equals(" # ")) {
-            System.out.println("The enemy hit your ship!");
+            System.out.println("The enemy HIT your ship!");
             playerMap[row][col] = " X ";
         } else {
-            System.out.println("The enemy missed!");
+            System.out.println("The enemy MISSED!");
             playerMap[row][col] = " O ";
         }
     }

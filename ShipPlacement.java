@@ -15,13 +15,13 @@ public class ShipPlacement {
 
                 if (random == null) {
                 	FillAndPrintMaps.printGame(playerMap, enemyMap);
-                    System.out.println("\nEnter two coordinates (e.g., A1 B2) to place your " + shipSize + "x1 ship: ");
+                    System.out.println("\nEnter two coordinates to establish a horizontal (or vertical) line for placing your " + shipSize + "x1 ship. (For example, to place a 3x1 ship, you can use A1 and A3 or A1 and C1.) ");
                     String coordinate1 = input.next();
                     String coordinate2 = input.next();
 
                     // Check if the coordinates match the ship size
                     while (!isMatchingShipSize(coordinate1, coordinate2, shipSize) || !drawLine(map, coordinate1, coordinate2)) {
-                        System.out.println("Invalid coordinates. Please enter new coordinates that match the ship size.");
+                        System.out.println("Invalid coordinates. Please input new coordinates that either match the ship size or do not already contain a placed ship.");
                         coordinate1 = input.next();
                         coordinate2 = input.next();
                     }
