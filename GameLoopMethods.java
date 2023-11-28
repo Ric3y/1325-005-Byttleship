@@ -10,7 +10,7 @@ public class GameLoopMethods {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter coordinates to attack the enemy(e.g., A1): ");
-        String target = scanner.next();
+        String target = scanner.next().toUpperCase();
 
 
         int row = Integer.parseInt(target.substring(1)) - 1;
