@@ -1,4 +1,4 @@
-package projectTest;
+package ByttleShipPackage;
 
 import java.util.Random;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package projectTest;
+package ByttleShipPackage;
 
 public class FillAndPrintMaps {
 	
